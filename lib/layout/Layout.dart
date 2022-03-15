@@ -1,18 +1,19 @@
 import "package:flutter/material.dart";
 
-import "CorpoDoLayout.dart";
-
 /*
 Autor - @salomaotech
-Descrição - Layout básico utilizando a widtget MaterialApp
+Descrição - Layout básico utilizando a widget MaterialApp com a widget Scaffold
  */
 
 class Layout extends StatelessWidget {
   /* propriedades */
   String _tituloDoAPlicativo;
 
+  /* widgets */
+  Widget _viewHome;
+
   /* construtor */
-  Layout(this._tituloDoAPlicativo);
+  Layout(this._tituloDoAPlicativo, this._viewHome);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,12 @@ class Layout extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: CorpoDoLayout(_tituloDoAPlicativo),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(_tituloDoAPlicativo),
+        ),
+        body: _viewHome,
+      ),
     );
   }
 }
